@@ -1,6 +1,8 @@
 ---
 
-openvpn_service: openvpn@server
+openvpn_service: "{{ 'openvpn-server@server' if ansible_service_mgr == 'systemd' else 'openvpn' }}"
+
+openvpn_etcdir: /etc/openvpn/server/
 
 openvpn_group: nobody
 
